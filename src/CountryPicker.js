@@ -28,7 +28,7 @@ let countries = null
 let Emoji = null
 let styles = {}
 
-const isEmojiable = Platform.OS === 'ios'
+const isEmojiable = false
 
 if (isEmojiable) {
   countries = require('../data/countries-emoji')
@@ -226,7 +226,7 @@ export default class CountryPicker extends Component {
   openModal = this.openModal.bind(this)
 
   // dimensions of country list and window
-  itemHeight = getHeightPercent(7)
+  itemHeight = 40
   listHeight = countries.length * this.itemHeight
 
   openModal() {
@@ -351,6 +351,8 @@ export default class CountryPicker extends Component {
                   enableEmptySections
                   ref={listView => (this._listView = listView)}
                   dataSource={this.state.dataSource}
+                  show
+                  flashScrollIndicators={false}
                   renderRow={country => this.renderCountry(country)}
                   initialListSize={30}
                   pageSize={15}
@@ -359,6 +361,8 @@ export default class CountryPicker extends Component {
                 />
                 <ScrollView
                   contentContainerStyle={styles.letters}
+                  showsVerticalScrollIndicator={false}
+                  showsHorizontalScrollIndicator={false}
                   keyboardShouldPersistTaps="always"
                 >
                   {this.state.filter === '' &&
