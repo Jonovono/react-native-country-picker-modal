@@ -1,6 +1,8 @@
 import { Platform, StyleSheet, PixelRatio } from 'react-native'
 import { getHeightPercent } from './ratio'
 
+let ITEM_HEIGHT = 40
+
 export default StyleSheet.create({
   modalContainer: {
     backgroundColor: 'white',
@@ -48,7 +50,7 @@ export default StyleSheet.create({
   },
   itemCountry: {
     flexDirection: 'row',
-    height: '7%',
+    height: ITEM_HEIGHT,
     justifyContent: 'flex-start',
     alignItems: 'center'
   },
@@ -79,7 +81,7 @@ export default StyleSheet.create({
   },
   letter: {
     height: '3.3%',
-    width: '4%',
+    width: 20,
     justifyContent: 'center',
     alignItems: 'center'
   },
